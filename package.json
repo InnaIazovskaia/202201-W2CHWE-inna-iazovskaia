@@ -1,0 +1,30 @@
+{
+  "name": "w2chwe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watchAll --verbose",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/InnaIazovskaia/202201-W2CHWE-inna-iazovskaia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/InnaIazovskaia/202201-W2CHWE-inna-iazovskaia/issues"
+  },
+  "homepage": "https://github.com/InnaIazovskaia/202201-W2CHWE-inna-iazovskaia#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "husky": "^7.0.0",
+    "jest": "^27.4.7"
+  }
+}
