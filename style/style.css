@@ -5,3 +5,10 @@
 .header__title {
   text-align: center;
 }
+
+.game__field {
+  width: 400px;
+  height: 280px;
+  border: solid 1px #000000;
+  margin-bottom: 10px;
+}
