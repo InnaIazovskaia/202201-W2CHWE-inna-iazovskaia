@@ -1,7 +1,7 @@
-const cells = Array.from(document.querySelectorAll(".field__cell"));
+const cells = document.querySelectorAll(".field__cell");
 
-cells.forEach((cell) => {
+for (const cell of cells) {
   cell.addEventListener("click", () => {
-    cell.style.backgroundColor = "#ff0";
+    document.getElementById(cell.id).style.background = "#ff0";
   });
-});
+}
