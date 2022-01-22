@@ -11,6 +11,13 @@
   height: 280px;
   border: solid 1px #000000;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.feald__row {
+  display: flex;
 }
 
 .field__cell {
