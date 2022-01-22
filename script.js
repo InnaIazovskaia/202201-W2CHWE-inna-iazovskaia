@@ -1,5 +1,5 @@
 const cells = document.querySelectorAll(".field__cell");
-const newGame = document.querySelector(".game__button_reset");
+const resetGame = document.querySelector(".game__button_reset");
 
 for (const cell of cells) {
   cell.addEventListener("click", () => {
@@ -7,7 +7,7 @@ for (const cell of cells) {
   });
 }
 
-newGame.addEventListener("click", () => {
+resetGame.addEventListener("click", () => {
   for (const cell of cells) {
     document.getElementById(cell.id).style.background = "#808080";
   }
