@@ -10,7 +10,7 @@ function createField() {
     for (let i = 0; i < 14; i++) {
       const fieldArrayLine = [];
       for (let j = 0; j < 20; j++) {
-        if (cells[cellsCount].style.background === "#ff0") {
+        if (cells[cellsCount].style.background === "yellow") {
           fieldArrayLine.push(1);
         } else {
           fieldArrayLine.push(0);
@@ -25,7 +25,7 @@ function createField() {
 
 for (const cell of cells) {
   cell.addEventListener("click", () => {
-    document.getElementById(cell.id).style.background = "#ff0";
+    document.getElementById(cell.id).style.background = "yellow";
   });
 }
 
