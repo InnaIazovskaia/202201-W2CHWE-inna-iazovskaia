@@ -1,5 +1,6 @@
 const cells = document.querySelectorAll(".field__cell");
 const resetGame = document.querySelector(".game__button_reset");
+const startGame = document.querySelector(".game__button_start");
 let fieldArray = [];
 let cellsCount = 0;
 
