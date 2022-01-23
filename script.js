@@ -34,3 +34,5 @@ resetGame.addEventListener("click", () => {
     document.getElementById(cell.id).style.background = "#808080";
   }
 });
+
+startGame.addEventListener("click", createField);
