@@ -1,6 +1,6 @@
 const cells = document.querySelectorAll(".field__cell");
 const resetGame = document.querySelector(".game__button_reset");
-const fieldArray = [];
+let fieldArray = [];
 let cellsCount = 0;
 
 function createField() {
