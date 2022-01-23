@@ -3,6 +3,7 @@ const resetGame = document.querySelector(".game__button_reset");
 const startGame = document.querySelector(".game__button_start");
 let fieldArray = [];
 let cellsCount = 0;
+let newFieldArray = [];
 
 function createField() {
   fieldArray = [];
@@ -21,6 +22,24 @@ function createField() {
     }
   }
   return fieldArray;
+}
+
+function createNewField() {
+  newFieldArray = [];
+  for (let i = 0; i < 14; i++) {
+    newFieldArray[i] = [];
+    for (let j = 0; j < 20; j++) {
+      let neighbors = 0;
+      if (fieldArray[i - 1][j] === 1) neighbors++;
+      if (fieldArray[i][j + 1] === 1) neighbors++;
+      if (fieldArray[i + 1][j] === 1) neighbors++;
+      if (fieldArray[i][j - 1] === 1) neighbors++;
+      if (fieldArray[i - 1][j - 1] === 1) neighbors++;
+      if (fieldArray[i - 1][j + 1] === 1) neighbors++;
+      if (fieldArray[i + 1][j + 1] === 1) neighbors++;
+      if (fieldArray[i + 1][j - 1] === 1) neighbors++;
+    }
+  }
 }
 
 for (const cell of cells) {
