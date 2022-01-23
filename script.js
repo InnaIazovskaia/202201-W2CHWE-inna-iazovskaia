@@ -1,5 +1,6 @@
 const cells = document.querySelectorAll(".field__cell");
 const resetGame = document.querySelector(".game__button_reset");
+const fieldArray = [];
 
 for (const cell of cells) {
   cell.addEventListener("click", () => {
