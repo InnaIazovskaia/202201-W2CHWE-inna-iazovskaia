@@ -1,9 +1,27 @@
 const cells = document.querySelectorAll(".field__cell");
 const resetGame = document.querySelector(".game__button_reset");
 const startGame = document.querySelector(".game__button_start");
+
 let fieldArray = [];
-let cellsCount = 0;
+
 let newFieldArray = [];
+
+function startLife() {
+  let cellsCount = 0;
+  while (cellsCount < cells.length) {
+    for (let i = 0; i < 14; i++) {
+      for (let j = 0; j < 20; j++) {
+        fieldArray[i][j] = newFieldArray[i][j];
+        if (newFieldArray[i][j] === 1) {
+          cells[cellsCount].style.background = "yellow";
+        } else {
+          cells[cellsCount].style.background = "#808080";
+        }
+        cellsCount++;
+      }
+    }
+  }
+}
 
 function iCoordinateMinus(i) {
   let iChecked;
@@ -58,9 +76,11 @@ function createNewField() {
     }
     newFieldArray.push(newFieldArrayLine);
   }
+  startLife();
 }
 
 function createField() {
+  let cellsCount = 0;
   fieldArray = [];
   while (cellsCount < cells.length) {
     for (let i = 0; i < 14; i++) {
@@ -76,23 +96,7 @@ function createField() {
       fieldArray.push(fieldArrayLine);
     }
   }
-}
-
-function startLife() {
-  cellsCount = 0;
-  while (cellsCount < cells.length) {
-    for (let i = 0; i < 14; i++) {
-      for (let j = 0; j < 20; j++) {
-        fieldArray[i][j] = newFieldArray[i][j];
-        if (newFieldArray[i][j] === 1) {
-          cells[cellsCount].style.background = "yellow";
-        } else {
-          cells[cellsCount].style.background = "#808080";
-        }
-        cellsCount++;
-      }
-    }
-  }
+  createNewField();
 }
 
 for (const cell of cells) {
@@ -105,8 +109,8 @@ resetGame.addEventListener("click", () => {
   for (const cell of cells) {
     document.getElementById(cell.id).style.background = "#808080";
   }
+  fieldArray = [];
+  newFieldArray = [];
 });
 
 startGame.addEventListener("click", createField);
-startGame.addEventListener("click", createNewField);
-startGame.addEventListener("click", startLife);
