@@ -5,25 +5,6 @@ let fieldArray = [];
 let cellsCount = 0;
 let newFieldArray = [];
 
-function createField() {
-  fieldArray = [];
-  while (cellsCount < cells.length) {
-    for (let i = 0; i < 14; i++) {
-      const fieldArrayLine = [];
-      for (let j = 0; j < 20; j++) {
-        if (cells[cellsCount].style.background === "yellow") {
-          fieldArrayLine.push(1);
-        } else {
-          fieldArrayLine.push(0);
-        }
-        cellsCount++;
-      }
-      fieldArray.push(fieldArrayLine);
-    }
-  }
-  return fieldArray;
-}
-
 function iCoordinateMinus(i) {
   let iChecked;
   if (i === 0) iChecked = 14;
@@ -55,7 +36,7 @@ function jCoordinatePlus(j) {
 function createNewField() {
   newFieldArray = [];
   for (let i = 0; i < 14; i++) {
-    newFieldArray[i] = [];
+    const newFieldArrayLine = [];
     for (let j = 0; j < 20; j++) {
       let neighbors = 0;
       if (fieldArray[iCoordinateMinus(i) - 1][j] === 1) neighbors++;
@@ -70,8 +51,36 @@ function createNewField() {
         neighbors++;
       if (fieldArray[iCoordinatePlus(i) + 1][jCoordinateMinus(j) - 1] === 1)
         neighbors++;
+      if (fieldArray[i][j] === 0 && neighbors === 3) newFieldArrayLine.push(1);
+      else if (fieldArray[i][j] === 1 && (neighbors < 2 || neighbors > 3))
+        newFieldArrayLine.push(0);
+      else newFieldArrayLine.push(fieldArray[i][j]);
+    }
+    newFieldArray.push(newFieldArrayLine);
+  }
+}
+
+function createField() {
+  fieldArray = [];
+  while (cellsCount < cells.length) {
+    for (let i = 0; i < 14; i++) {
+      const fieldArrayLine = [];
+      for (let j = 0; j < 20; j++) {
+        if (cells[cellsCount].style.background === "yellow") {
+          fieldArrayLine.push(1);
+        } else {
+          fieldArrayLine.push(0);
+        }
+        cellsCount++;
+      }
+      fieldArray.push(fieldArrayLine);
     }
   }
+}
+
+function draw() {
+  cellsCount = 0;
+  while (cellsCount < cells.length) {}
 }
 
 for (const cell of cells) {
@@ -87,3 +96,4 @@ resetGame.addEventListener("click", () => {
 });
 
 startGame.addEventListener("click", createField);
+startGame.addEventListener("click", createNewField);
