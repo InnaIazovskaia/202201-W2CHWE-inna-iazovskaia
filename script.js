@@ -78,9 +78,21 @@ function createField() {
   }
 }
 
-function draw() {
+function startLife() {
   cellsCount = 0;
-  while (cellsCount < cells.length) {}
+  while (cellsCount < cells.length) {
+    for (let i = 0; i < 14; i++) {
+      for (let j = 0; j < 20; j++) {
+        fieldArray[i][j] = newFieldArray[i][j];
+        if (newFieldArray[i][j] === 1) {
+          cells[cellsCount].style.background = "yellow";
+        } else {
+          cells[cellsCount].style.background = "#808080";
+        }
+        cellsCount++;
+      }
+    }
+  }
 }
 
 for (const cell of cells) {
@@ -97,3 +109,4 @@ resetGame.addEventListener("click", () => {
 
 startGame.addEventListener("click", createField);
 startGame.addEventListener("click", createNewField);
+startGame.addEventListener("click", startLife);
