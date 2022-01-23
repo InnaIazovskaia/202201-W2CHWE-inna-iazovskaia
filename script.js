@@ -24,18 +24,25 @@ function createField() {
   return fieldArray;
 }
 
+function iCoordinateMinus(i) {
+  let iChecked;
+  if (i === 0) iChecked = 14;
+  else iChecked = i;
+  return iChecked;
+}
+
 function createNewField() {
   newFieldArray = [];
   for (let i = 0; i < 14; i++) {
     newFieldArray[i] = [];
     for (let j = 0; j < 20; j++) {
       let neighbors = 0;
-      if (fieldArray[i - 1][j] === 1) neighbors++;
+      if (fieldArray[iCoordinateMinus(i) - 1][j] === 1) neighbors++;
       if (fieldArray[i][j + 1] === 1) neighbors++;
       if (fieldArray[i + 1][j] === 1) neighbors++;
       if (fieldArray[i][j - 1] === 1) neighbors++;
-      if (fieldArray[i - 1][j - 1] === 1) neighbors++;
-      if (fieldArray[i - 1][j + 1] === 1) neighbors++;
+      if (fieldArray[iCoordinateMinus(i) - 1][j - 1] === 1) neighbors++;
+      if (fieldArray[iCoordinateMinus(i) - 1][j + 1] === 1) neighbors++;
       if (fieldArray[i + 1][j + 1] === 1) neighbors++;
       if (fieldArray[i + 1][j - 1] === 1) neighbors++;
     }
