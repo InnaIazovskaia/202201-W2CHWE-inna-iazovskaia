@@ -38,6 +38,13 @@ function iCoordinatePlus(i) {
   return iChecked;
 }
 
+function jCoordinateMinus(j) {
+  let jChecked;
+  if (j === 0) jChecked = 20;
+  else jChecked = j;
+  return jChecked;
+}
+
 function createNewField() {
   newFieldArray = [];
   for (let i = 0; i < 14; i++) {
@@ -47,11 +54,13 @@ function createNewField() {
       if (fieldArray[iCoordinateMinus(i) - 1][j] === 1) neighbors++;
       if (fieldArray[i][j + 1] === 1) neighbors++;
       if (fieldArray[iCoordinatePlus(i) + 1][j] === 1) neighbors++;
-      if (fieldArray[i][j - 1] === 1) neighbors++;
-      if (fieldArray[iCoordinateMinus(i) - 1][j - 1] === 1) neighbors++;
+      if (fieldArray[i][jCoordinateMinus(j) - 1] === 1) neighbors++;
+      if (fieldArray[iCoordinateMinus(i) - 1][jCoordinateMinus(j) - 1] === 1)
+        neighbors++;
       if (fieldArray[iCoordinateMinus(i) - 1][j + 1] === 1) neighbors++;
       if (fieldArray[iCoordinatePlus(i) + 1][j + 1] === 1) neighbors++;
-      if (fieldArray[iCoordinatePlus(i) + 1][j - 1] === 1) neighbors++;
+      if (fieldArray[iCoordinatePlus(i) + 1][jCoordinateMinus(j) - 1] === 1)
+        neighbors++;
     }
   }
 }
